@@ -8,8 +8,8 @@ const Avatar: React.FC = () => {
     query getAvatarImage {
       avatarImage: file(relativePath: { eq: "avatar.jpg" }) {
         childImageSharp {
-          fixed(width: 384, height: 384) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 384) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -17,9 +17,10 @@ const Avatar: React.FC = () => {
   `)
   return (
     <Img
-      fixed={data.avatarImage?.childImageSharp.fixed}
+      fluid={data.avatarImage?.childImageSharp.fluid}
       sx={{
-        maxWidth: `100%`,
+        width: `24rem`,
+        maxWidth: `90%`,
         borderRadius: `50%`,
       }}
     />

@@ -45,15 +45,10 @@ const About: React.FC<{ offset: number; factor: number }> = ({ offset, factor })
           <Styled.a href="http://www.iii.u-tokyo.ac.jp/">GSII</Styled.a>).
         </Styled.p>
         <Styled.p>
-          I'm a Software Developer experienced in a lot of technologies such as web (e.g., JavaScript (ES6+),
-          TypeScript, Node.js, Gatsby, React, and Vue), mobile apps (e.g., Swift), games (e.g., C# and Unity),
-          microcomputers (e.g., Arduino, Raspberry Pi) and other technologies (e.g., Git, Shell, Python). I have created
-          many awesome works; You will see them next!!
+          I'm a Software Developer experienced in a lot of technologies such as web (TypeScript, Node.js), mobile apps
+          (iOS and Android), games (Unity), microcomputers (Arduino, Raspberry Pi) and other technologies.
         </Styled.p>
-        <Styled.p>
-          I like walking, cycling, driving, travelling and taking photos. I like vehicles such as cars, trains, and
-          airplanes. Also I love going to concerts and watching Japanese animation works!!
-        </Styled.p>
+        <Styled.p>Take a look at my projects here and click here to see more details about me!!</Styled.p>
       </Inner>
     </Content>
   </div>

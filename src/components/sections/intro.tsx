@@ -41,7 +41,10 @@ const Hero: React.FC<{ offset: number; factor: number }> = ({ offset, factor }) 
     <Content sx={{ variant: `texts.bigger` }} speed={0.4} offset={offset} factor={factor}>
       <Inner>
         <div sx={{ textAlign: `center` }}>
-          <Avatar />
+          <div sx={{ display: `flex`, justifyContent: `center` }}>
+            <Avatar />
+          </div>
+
           <Styled.h1>Hello, I'm Asahi.</Styled.h1>
           <Styled.p>Welcome to Asahi Takenouchi's website!!</Styled.p>
         </div>
