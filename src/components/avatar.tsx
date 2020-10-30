@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
 
-const Avatar: React.FC<{}> = () => {
+const Avatar: React.FC = () => {
   // eslint-disable-next-line global-require
   const avatarImage = require(`../images/avatar.jpg`)
   return (

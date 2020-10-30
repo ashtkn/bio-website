@@ -1,29 +1,29 @@
+/** @jsx jsx */
 import React from 'react'
-import { css } from 'theme-ui'
-import { ParallaxLayer } from 'react-spring/renderprops-addons'
+import { jsx } from 'theme-ui'
+import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs'
 
 type ContentProps = {
   speed: number
   offset: number
-  children?: React.ReactNode
+  children: React.ReactNode
   className?: string
   factor?: number
 }
 
-const Content: React.FC<ContentProps> = ({ speed, offset, children, className, factor }) => (
+const Content: React.FC<ContentProps> = ({ speed, offset, children, className = ``, factor = 1 }) => (
   <ParallaxLayer
-    css={css({
+    sx={{
       padding: [3, 4, 4, 5],
       display: `flex`,
       flexDirection: `column`,
       alignItems: `center`,
       justifyContent: `center`,
       zIndex: 50,
-    })}
+    }}
     speed={speed}
     offset={offset}
-    factor={factor || 1}
-    // @ts-ignore
+    factor={factor}
     className={className}
   >
     {children}

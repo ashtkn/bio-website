@@ -31,7 +31,6 @@ const Projects: React.FC<ProjectsProps> = ({ children, offset, factor }) => (
             h2: { gridColumn: `-1/1`, color: `white !important` },
           }}
         >
-          {/* <ProjectsMDX /> */}
           {children}
         </div>
       </Inner>

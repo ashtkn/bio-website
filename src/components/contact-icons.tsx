@@ -5,7 +5,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTwitter, faFacebook, faInstagram, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 
-const ContactIcons: React.FC<{}> = () => {
+const ContactIcons: React.FC = () => {
   // Load necessary icons
   library.add(faTwitter)
   library.add(faFacebook)

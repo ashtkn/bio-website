@@ -3,15 +3,7 @@ import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
 import useSiteMetadata from '../hooks/use-site-metadata'
 
-const defaultProps = {
-  title: ``,
-  description: false,
-  pathname: false,
-  image: false,
-  children: null,
-}
-
-type Props = {
+type SEOProps = {
   title?: string
   description?: string
   pathname?: string
@@ -19,7 +11,7 @@ type Props = {
   children?: React.ReactNode
 }
 
-const SEO = ({ title, description, pathname, image, children }: Props) => {
+const SEO: React.FC<SEOProps> = ({ title = ``, description = ``, pathname = ``, image = ``, children = null }) => {
   const site = useSiteMetadata()
 
   const {
@@ -66,5 +58,3 @@ const SEO = ({ title, description, pathname, image, children }: Props) => {
 }
 
 export default SEO
-
-SEO.defaultProps = defaultProps

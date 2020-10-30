@@ -16,7 +16,9 @@ const InnerWave = styled.div`
   }
 `
 
-const Contact: React.FC<{ offset: number; factor: number }> = ({ offset, factor }) => (
+type ContactProps = { offset: number; factor?: number }
+
+const Contact: React.FC<ContactProps> = ({ offset, factor = 1 }) => (
   <div>
     <Divider fill="divider" speed={0.2} offset={offset} factor={factor}>
       <div sx={{ position: `absolute`, bottom: 0, width: `full`, transform: `matrix(1, 0, 0, -1, 0, 0)` }}>
@@ -36,7 +38,6 @@ const Contact: React.FC<{ offset: number; factor: number }> = ({ offset, factor 
     </Divider>
     <Content speed={0.4} offset={offset} factor={factor}>
       <Inner>
-        {/* <ContactMDX /> */}
         <Styled.h2>Get in touch</Styled.h2>
         <Styled.p>You can find me on other platforms!!</Styled.p>
         <ContactIcons />
