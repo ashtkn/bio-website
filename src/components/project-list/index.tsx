@@ -2,8 +2,8 @@
 import React from 'react'
 import { jsx, Styled } from 'theme-ui'
 import Carousel, { Modal, ModalGateway } from 'react-images'
-import Projects from '../projects'
-import ProjectCard from '../project-card'
+import Projects from './projects'
+import ProjectCard from './project-card'
 import { projects } from '../../contents'
 import useWorkImages from '../../hooks/use-work-images'
 

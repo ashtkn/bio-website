@@ -7,8 +7,8 @@ import Content from '../../elements/content'
 import SVG from '../svg'
 import { UpDown, UpDownWide, waveAnimation } from '../../styles/animations'
 
-import ContactIcons from '../contact-icons'
-import Footer from '../footer'
+import ContactIcons from './contact-icons'
+import Footer from './footer'
 import { contactTexts } from '../../contents'
 
 const InnerWave = styled.div`

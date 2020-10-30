@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import Img from 'gatsby-image'
-import useAvatarImage from '../hooks/use-avatar-image'
+import useAvatarImage from '../../hooks/use-avatar-image'
 
 const Avatar: React.FC = () => {
   const avatarImage = useAvatarImage()

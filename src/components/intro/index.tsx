@@ -6,7 +6,7 @@ import Content from '../../elements/content'
 import SVG from '../svg'
 import { UpDown, UpDownWide } from '../../styles/animations'
 
-import Avatar from '../avatar'
+import Avatar from './avatar'
 import { introTexts } from '../../contents'
 
 const Hero: React.FC<{ offset: number; factor: number }> = ({ offset, factor }) => (

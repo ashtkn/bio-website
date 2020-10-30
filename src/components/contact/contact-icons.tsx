@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { snsAccounts } from '../contents'
+import { snsAccounts } from '../../contents'
 
 const ContactIcons: React.FC = () => (
   <div
