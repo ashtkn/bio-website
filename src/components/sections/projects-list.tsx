@@ -25,21 +25,21 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
       key: `exhibition-app`,
       imageFilename: `exhibition-app.jpg`,
       title: `Exhibition App`,
-      link: `https://www.youtube.com/watch?v=fe0_cMPLUwc`,
+      youtube: `https://www.youtube.com/watch?v=fe0_cMPLUwc`,
       bg: `linear-gradient(to right, #D4145A 0%, #FBB03B 100%)`,
     },
     {
       key: `heisei-hackathon`,
       imageFilename: `heisei-hackathon.png`,
       title: `HEISEI NO ASHIATO`,
-      link: `https://www.youtube.com/watch?v=nDs3hQ6yt30`,
+      youtube: `https://www.youtube.com/watch?v=nDs3hQ6yt30`,
       bg: `linear-gradient(to right, #662D8C 0%, #ED1E79 100%)`,
     },
     {
       key: `mayfes-2018`,
       imageFilename: `mayfes-2018.png`,
       title: `Meteor Crash VR`,
-      link: `https://www.youtube.com/watch?v=1tiTpA__cyk`,
+      youtube: `https://www.youtube.com/watch?v=1tiTpA__cyk`,
       bg: `linear-gradient(to right, #D585FF 0%, #00FFEE 100%)`,
     },
     {
@@ -106,7 +106,7 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
           <Modal onClose={closeLightBox}>
             <Carousel
               currentIndex={currentProject}
-              views={projects.map(({ title, imageFilename, link }) => ({
+              views={projects.map(({ title, imageFilename, youtube }) => ({
                 source: data.allFile.edges.find(
                   ({ node }: { node: { name: string; extension: string } }) =>
                     `${node.name}.${node.extension}` === imageFilename
@@ -114,7 +114,7 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
                 caption: (
                   <div>
                     <Styled.p className="text-lg">{title}</Styled.p>
-                    <Styled.a href={link}>YouTube</Styled.a>
+                    {youtube ? <Styled.a href={youtube}>YouTube</Styled.a> : null}
                   </div>
                 ),
               }))}
