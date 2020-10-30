@@ -9,10 +9,21 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "clean": "gatsby clean",
-    "tsc": "tsc",
-    "type-check": "tsc --noEmit",
-    "lint": "eslint . --ignore-path .gitignore --ignore-path .prettierignore --ext .ts,.tsx,.js",
-    "format": "prettier \"**/*.{md,mdx,json,yaml}\" --write"
+    "lint": "eslint --ext .js,.ts,.tsx --ignore-path .gitignore .",
+    "format": "prettier --write '**/*.{js,ts,tsx,html,json,md}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "npm run lint -- --fix"
+    ],
+    "**/*.{js,ts,tsx,html,json,md}": [
+      "npm run format"
+    ]
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
@@ -57,18 +68,5 @@
     "lint-staged": "^10.1.6",
     "prettier": "^2.0.4",
     "typescript": "^3.8.3"
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "npm run lint --fix"
-    ],
-    "*.{md,mdx,json,yaml}": [
-      "npm run format"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
