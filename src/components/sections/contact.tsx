@@ -7,9 +7,6 @@ import Content from '../../elements/content'
 import SVG from '../svg'
 import { UpDown, UpDownWide, waveAnimation } from '../../styles/animations'
 
-// @ts-ignore
-// import ContactMDX from '../../contents/contact'
-
 import ContactIcons from '../contact-icons'
 import Footer from '../footer'
 

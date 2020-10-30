@@ -5,8 +5,6 @@ import Inner from '../../elements/inner'
 import Content from '../../elements/content'
 import SVG from '../svg'
 import { UpDown, UpDownWide } from '../../styles/animations'
-// @ts-ignore
-// import Intro from '../../contents/intro'
 
 import Avatar from '../avatar'
 
