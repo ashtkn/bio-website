@@ -1,6 +1,8 @@
 /** @jsx jsx */
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
+import Img from 'gatsby-image'
 
 type ProjectCardProps = {
   image: string
@@ -11,8 +13,24 @@ type ProjectCardProps = {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ image, link, title, children, bg }) => {
-  // eslint-disable-next-line global-require, import/no-dynamic-require
-  const imageSource = require(`../images/works/${image}`)
+  const data = useStaticQuery(graphql`
+    query getWorkImages {
+      allFile(filter: { relativeDirectory: { eq: "works" } }) {
+        edges {
+          node {
+            name
+            extension
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <a
       href={link}
@@ -36,8 +54,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, link, title, children,
         },
       }}
     >
-      <Styled.img
-        src={imageSource}
+      <Img
+        fluid={
+          data.allFile.edges.find(
+            ({ node }: { node: { name: string; extension: string } }) => `${node.name}.${node.extension}` === image
+          ).node.childImageSharp.fluid
+        }
         sx={{
           maxWidth: `100%`,
         }}
