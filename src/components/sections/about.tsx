@@ -46,9 +46,9 @@ const About: React.FC<{ offset: number; factor: number }> = ({ offset, factor })
         </Styled.p>
         <Styled.p>
           I'm a Software Developer experienced in a lot of technologies such as web (TypeScript, Node.js), mobile apps
-          (iOS and Android), games (Unity), microcomputers (Arduino, Raspberry Pi) and other technologies.
+          (iOS and Android), games (Unity), microcomputers (Arduino, Raspberry Pi) and other technologies. Please take a
+          look at my projects here!!
         </Styled.p>
-        <Styled.p>Take a look at my projects here and click here to see more details about me!!</Styled.p>
       </Inner>
     </Content>
   </div>

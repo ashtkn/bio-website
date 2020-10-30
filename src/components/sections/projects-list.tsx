@@ -90,10 +90,10 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
     <div>
       <Projects offset={offset} factor={factor}>
         {projects.map(({ key, imageFilename, title, bg }, index) => {
-          const image = data.allFile.edges.find(({ node }: { node: { name: string; extension: string } }) => {
-            console.log(imageFilename)
-            return `${node.name}.${node.extension}` === imageFilename
-          }).node.childImageSharp.fluid
+          const image = data.allFile.edges.find(
+            ({ node }: { node: { name: string; extension: string } }) =>
+              `${node.name}.${node.extension}` === imageFilename
+          ).node.childImageSharp.fluid
           return (
             <ProjectCard key={key} image={image} index={index} title={title} onClick={openLightBox} bg={bg}>
               {` `}
