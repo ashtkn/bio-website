@@ -1,12 +1,23 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { graphql, useStaticQuery } from 'gatsby'
+import { jsx } from 'theme-ui'
+import Img from 'gatsby-image'
 
 const Avatar: React.FC = () => {
-  // eslint-disable-next-line global-require
-  const avatarImage = require(`../images/avatar.jpg`)
+  const data = useStaticQuery(graphql`
+    query getAvatarImage {
+      avatarImage: file(relativePath: { eq: "avatar.jpg" }) {
+        childImageSharp {
+          fixed(width: 384, height: 384) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
   return (
-    <Styled.img
-      src={avatarImage}
+    <Img
+      fixed={data.avatarImage?.childImageSharp.fixed}
       sx={{
         maxWidth: `100%`,
         borderRadius: `50%`,
