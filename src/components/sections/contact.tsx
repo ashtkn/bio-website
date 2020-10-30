@@ -9,6 +9,7 @@ import { UpDown, UpDownWide, waveAnimation } from '../../styles/animations'
 
 import ContactIcons from '../contact-icons'
 import Footer from '../footer'
+import { contactTexts } from '../../contents'
 
 const InnerWave = styled.div`
   path {
@@ -38,8 +39,8 @@ const Contact: React.FC<ContactProps> = ({ offset, factor = 1 }) => (
     </Divider>
     <Content speed={0.4} offset={offset} factor={factor}>
       <Inner>
-        <Styled.h2>Get in touch</Styled.h2>
-        <Styled.p>You can find me on other platforms!!</Styled.p>
+        <Styled.h2>{contactTexts.h2}</Styled.h2>
+        <Styled.p>{contactTexts.p}</Styled.p>
         <ContactIcons />
       </Inner>
       <Footer />

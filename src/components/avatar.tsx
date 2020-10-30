@@ -1,23 +1,13 @@
 /** @jsx jsx */
-import { graphql, useStaticQuery } from 'gatsby'
 import { jsx } from 'theme-ui'
 import Img from 'gatsby-image'
+import useAvatarImage from '../hooks/use-avatar-image'
 
 const Avatar: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query getAvatarImage {
-      avatarImage: file(relativePath: { eq: "avatar.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 384) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  const avatarImage = useAvatarImage()
   return (
     <Img
-      fluid={data.avatarImage?.childImageSharp.fluid}
+      fluid={avatarImage?.childImageSharp.fluid}
       sx={{
         width: `24rem`,
         maxWidth: `90%`,

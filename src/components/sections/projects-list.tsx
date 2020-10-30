@@ -2,9 +2,10 @@
 import React from 'react'
 import { jsx, Styled } from 'theme-ui'
 import Carousel, { Modal, ModalGateway } from 'react-images'
-import { graphql, useStaticQuery } from 'gatsby'
 import Projects from '../projects'
 import ProjectCard from '../project-card'
+import { projects } from '../../contents'
+import useWorkImages from '../../hooks/use-work-images'
 
 const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, factor }) => {
   const [currentProject, setCurrentProject] = React.useState(0)
@@ -20,77 +21,13 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
     setViewerIsOpen(false)
   }
 
-  const projects = [
-    {
-      key: `exhibition-app`,
-      imageFilename: `exhibition-app.jpg`,
-      title: `Exhibition App`,
-      youtube: `https://www.youtube.com/watch?v=fe0_cMPLUwc`,
-      bg: `linear-gradient(to right, #D4145A 0%, #FBB03B 100%)`,
-    },
-    {
-      key: `heisei-hackathon`,
-      imageFilename: `heisei-hackathon.png`,
-      title: `HEISEI NO ASHIATO`,
-      youtube: `https://www.youtube.com/watch?v=nDs3hQ6yt30`,
-      bg: `linear-gradient(to right, #662D8C 0%, #ED1E79 100%)`,
-    },
-    {
-      key: `mayfes-2018`,
-      imageFilename: `mayfes-2018.png`,
-      title: `Meteor Crash VR`,
-      youtube: `https://www.youtube.com/watch?v=1tiTpA__cyk`,
-      bg: `linear-gradient(to right, #D585FF 0%, #00FFEE 100%)`,
-    },
-    {
-      key: `lanthanum`,
-      imageFilename: `lanthanum.jpg`,
-      title: `IoT Lanthanum`,
-      bg: `linear-gradient(to right, #009245 0%, #FCEE21 100%)`,
-    },
-    {
-      key: `ut-virtual`,
-      imageFilename: `ut-virtual.png`,
-      title: `Wonder Sphere VR`,
-      bg: `linear-gradient(to right, #D4145A 0%, #FBB03B 100%)`,
-    },
-    {
-      key: `ivrc-2017`,
-      imageFilename: `ivrc-2017.jpg`,
-      title: `Mosquitoon`,
-      bg: `linear-gradient(to right, #662D8C 0%, #ED1E79 100%)`,
-    },
-    {
-      key: `mayfes-2017`,
-      imageFilename: `mayfes-2017.jpg`,
-      title: `MAY FES 2017 VR GAME`,
-      bg: `linear-gradient(to right, #D585FF 0%, #00FFEE 100%)`,
-    },
-  ]
-
-  const data = useStaticQuery(graphql`
-    query getWorkImages {
-      allFile(filter: { relativeDirectory: { eq: "works" } }) {
-        edges {
-          node {
-            name
-            extension
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  const edges = useWorkImages()
 
   return (
     <div>
       <Projects offset={offset} factor={factor}>
         {projects.map(({ key, imageFilename, title, bg }, index) => {
-          const image = data.allFile.edges.find(
+          const image = edges.find(
             ({ node }: { node: { name: string; extension: string } }) =>
               `${node.name}.${node.extension}` === imageFilename
           ).node.childImageSharp.fluid
@@ -107,7 +44,7 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
             <Carousel
               currentIndex={currentProject}
               views={projects.map(({ title, imageFilename, youtube }) => ({
-                source: data.allFile.edges.find(
+                source: edges.find(
                   ({ node }: { node: { name: string; extension: string } }) =>
                     `${node.name}.${node.extension}` === imageFilename
                 ).node.childImageSharp.fluid.src,
