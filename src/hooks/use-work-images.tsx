@@ -1,7 +1,9 @@
 import { graphql, useStaticQuery } from 'gatsby'
+import { GetWorkImagesQuery } from '../../graphql-types'
 
-const useWorkImages = (): any => {
-  const data = useStaticQuery(graphql`
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const useWorkImages = () => {
+  const data = useStaticQuery<GetWorkImagesQuery>(graphql`
     query getWorkImages {
       allFile(filter: { relativeDirectory: { eq: "works" } }) {
         edges {
@@ -18,6 +20,12 @@ const useWorkImages = (): any => {
       }
     }
   `)
-  return data.allFile.edges
+  return data.allFile.edges.map(({ node }) => {
+    const { name, extension, childImageSharp } = node
+    return {
+      filename: `${name}.${extension}`,
+      fluid: childImageSharp?.fluid,
+    }
+  })
 }
 export default useWorkImages

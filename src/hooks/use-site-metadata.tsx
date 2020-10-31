@@ -16,6 +16,7 @@ type UseSiteMetadataProps = {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const useSiteMetadata = () => {
   const data = useStaticQuery<UseSiteMetadataProps>(graphql`
     query {

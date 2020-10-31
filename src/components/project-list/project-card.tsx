@@ -7,7 +7,7 @@ type ProjectCardProps = {
   image: any
   index: number
   title: string
-  children: React.ReactNode
+  children?: React.ReactNode
   bg: string
   onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>, payload: { index: number }) => void
 }

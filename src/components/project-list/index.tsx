@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import React from 'react'
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import Projects from './projects'
 import ProjectCard from './project-card'
 import projects from '../../contents/projects'
 import useWorkImages from '../../hooks/use-work-images'
+import Caption from './caption'
 
 const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, factor }) => {
   const [currentProject, setCurrentProject] = React.useState(0)
@@ -21,21 +22,14 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
     setViewerIsOpen(false)
   }
 
-  const edges = useWorkImages()
+  const workImages = useWorkImages()
 
   return (
     <div>
       <Projects offset={offset} factor={factor}>
         {projects.map(({ key, imageFilename, title, bg }, index) => {
-          const image = edges.find(
-            ({ node }: { node: { name: string; extension: string } }) =>
-              `${node.name}.${node.extension}` === imageFilename
-          ).node.childImageSharp.fluid
-          return (
-            <ProjectCard key={key} image={image} index={index} title={title} onClick={openLightBox} bg={bg}>
-              {` `}
-            </ProjectCard>
-          )
+          const image = workImages.find((i) => i.filename === imageFilename)?.fluid
+          return <ProjectCard key={key} image={image} index={index} title={title} onClick={openLightBox} bg={bg} />
         })}
       </Projects>
       <ModalGateway>
@@ -44,16 +38,8 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
             <Carousel
               currentIndex={currentProject}
               views={projects.map(({ title, imageFilename, youtube }) => ({
-                source: edges.find(
-                  ({ node }: { node: { name: string; extension: string } }) =>
-                    `${node.name}.${node.extension}` === imageFilename
-                ).node.childImageSharp.fluid.src,
-                caption: (
-                  <div>
-                    <Styled.p className="text-lg">{title}</Styled.p>
-                    {youtube ? <Styled.a href={youtube}>YouTube</Styled.a> : null}
-                  </div>
-                ),
+                source: workImages.find((i) => i.filename === imageFilename)?.fluid?.src || ``,
+                caption: <Caption title={title} youtube={youtube} />,
               }))}
             />
           </Modal>

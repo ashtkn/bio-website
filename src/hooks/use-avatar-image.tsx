@@ -1,7 +1,9 @@
 import { graphql, useStaticQuery } from 'gatsby'
+import { GetAvatarImageQuery } from '../../graphql-types'
 
-const useAvatarImage = (): any => {
-  const data = useStaticQuery(graphql`
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const useAvatarImage = () => {
+  const data = useStaticQuery<GetAvatarImageQuery>(graphql`
     query getAvatarImage {
       avatarImage: file(relativePath: { eq: "avatar.jpg" }) {
         childImageSharp {
