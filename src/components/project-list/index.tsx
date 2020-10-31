@@ -22,14 +22,27 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
     setViewerIsOpen(false)
   }
 
-  const workImages = useWorkImages()
+  const images = useWorkImages()
 
   return (
     <div>
       <Projects offset={offset} factor={factor}>
-        {projects.map(({ key, imageFilename, title, bg }, index) => {
-          const image = workImages.find((i) => i.filename === imageFilename)?.fluid
-          return <ProjectCard key={key} image={image} index={index} title={title} onClick={openLightBox} bg={bg} />
+        {projects.map(({ key, filename, title, bg }, index) => {
+          const image = images.find((i) => i.filename === filename)?.fluid
+          if (!image) {
+            return null
+          }
+          const { base64, aspectRatio, src, srcSet, sizes } = image
+          return (
+            <ProjectCard
+              key={key}
+              image={{ base64: base64 || undefined, aspectRatio, src, srcSet, sizes }}
+              index={index}
+              title={title}
+              bg={bg}
+              onClick={openLightBox}
+            />
+          )
         })}
       </Projects>
       <ModalGateway>
@@ -37,8 +50,8 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
           <Modal onClose={closeLightBox}>
             <Carousel
               currentIndex={currentProject}
-              views={projects.map(({ title, imageFilename, youtube }) => ({
-                source: workImages.find((i) => i.filename === imageFilename)?.fluid?.src || ``,
+              views={projects.map(({ title, filename, youtube }) => ({
+                source: images.find((i) => i.filename === filename)?.fluid?.src || ``,
                 caption: <Caption title={title} youtube={youtube} />,
               }))}
             />

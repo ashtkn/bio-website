@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import React from 'react'
 import { jsx } from 'theme-ui'
-import Img from 'gatsby-image'
+import Img, { FluidObject } from 'gatsby-image'
 
 type ProjectCardProps = {
-  image: any
+  image: FluidObject | FluidObject[]
   index: number
   title: string
   children?: React.ReactNode

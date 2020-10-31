@@ -4,10 +4,15 @@ import Img from 'gatsby-image'
 import useAvatarImage from '../../hooks/use-avatar-image'
 
 const Avatar: React.FC = () => {
-  const avatarImage = useAvatarImage()
+  const image = useAvatarImage()?.fluid
+  if (!image) {
+    return null
+  }
+
+  const { base64, aspectRatio, src, srcSet, sizes } = image
   return (
     <Img
-      fluid={avatarImage?.childImageSharp.fluid}
+      fluid={{ base64: base64 || undefined, aspectRatio, src, srcSet, sizes }}
       sx={{
         width: `24rem`,
         maxWidth: `90%`,

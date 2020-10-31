@@ -14,7 +14,7 @@ const useAvatarImage = () => {
       }
     }
   `)
-  return data.avatarImage
+  return data.avatarImage?.childImageSharp
 }
 
 export default useAvatarImage
