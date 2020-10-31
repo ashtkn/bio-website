@@ -1,10 +1,29 @@
-const projects = [
+const projects: {
+  key: string
+  filename: string
+  title: string
+  technology: string
+  bg: string
+  website?: string
+  youtube?: string
+  github?: string
+}[] = [
+  {
+    key: `photo-album`,
+    filename: `photo-album.jpg`,
+    title: `Photo Album`,
+    technology: `Next.js, TypeScript`,
+    website: `https://photos.takenouchi.work`,
+    github: `https://github.com/ashtkn/photo-album`,
+    bg: `linear-gradient(to right, #D585FF 0%, #00FFEE 100%)`,
+  },
   {
     key: `exhibition-app`,
     filename: `exhibition-app.jpg`,
     title: `Exhibition App`,
     technology: `iOS, Swift`,
     youtube: `https://www.youtube.com/watch?v=fe0_cMPLUwc`,
+    github: `https://github.com/ashtkn/ExhibitionApp`,
     bg: `linear-gradient(to right, #D4145A 0%, #FBB03B 100%)`,
   },
   {
@@ -13,6 +32,7 @@ const projects = [
     title: `HEISEI NO ASHIATO`,
     technology: `Vue.js`,
     youtube: `https://www.youtube.com/watch?v=nDs3hQ6yt30`,
+    github: `https://github.com/ashtkn/heisei-hackathon`,
     bg: `linear-gradient(to right, #662D8C 0%, #ED1E79 100%)`,
   },
   {
@@ -44,13 +64,13 @@ const projects = [
     technology: `Unity, C#`,
     bg: `linear-gradient(to right, #662D8C 0%, #ED1E79 100%)`,
   },
-  {
-    key: `mayfes-2017`,
-    filename: `mayfes-2017.jpg`,
-    title: `MAY FES 2017 VR GAME`,
-    technology: `Unity, C#`,
-    bg: `linear-gradient(to right, #D585FF 0%, #00FFEE 100%)`,
-  },
+  // {
+  //   key: `mayfes-2017`,
+  //   filename: `mayfes-2017.jpg`,
+  //   title: `MAY FES 2017 VR GAME`,
+  //   technology: `Unity, C#`,
+  //   bg: `linear-gradient(to right, #D585FF 0%, #00FFEE 100%)`,
+  // },
 ]
 
 export default projects

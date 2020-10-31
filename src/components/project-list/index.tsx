@@ -50,9 +50,11 @@ const ProjectList: React.FC<{ offset: number; factor: number }> = ({ offset, fac
           <Modal onClose={closeLightBox}>
             <Carousel
               currentIndex={currentProject}
-              views={projects.map(({ title, technology, filename, youtube }) => ({
+              views={projects.map(({ title, technology, website, filename, youtube, github }) => ({
                 source: images.find((i) => i.filename === filename)?.fluid?.src || ``,
-                caption: <Caption title={title} technology={technology} youtube={youtube} />,
+                caption: (
+                  <Caption title={title} technology={technology} website={website} youtube={youtube} github={github} />
+                ),
               }))}
             />
           </Modal>
