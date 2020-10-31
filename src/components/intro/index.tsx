@@ -7,7 +7,6 @@ import SVG from '../svg'
 import { UpDown, UpDownWide } from '../../styles/animations'
 
 import Avatar from './avatar'
-import { introTexts } from '../../contents'
 
 const Hero: React.FC<{ offset: number; factor: number }> = ({ offset, factor }) => (
   <div>
@@ -45,8 +44,8 @@ const Hero: React.FC<{ offset: number; factor: number }> = ({ offset, factor }) 
           <div sx={{ display: `flex`, justifyContent: `center` }}>
             <Avatar />
           </div>
-          <Styled.h1>{introTexts.h1}</Styled.h1>
-          <Styled.p>{introTexts.p}</Styled.p>
+          <Styled.h1>Hello, I'm Asahi.</Styled.h1>
+          <Styled.p>Welcome to Asahi Takenouchi's website!!</Styled.p>
         </div>
       </Inner>
     </Content>

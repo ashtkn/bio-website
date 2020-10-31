@@ -39,10 +39,9 @@ const About: React.FC<{ offset: number; factor: number }> = ({ offset, factor })
         {/* <AboutMDX /> */}
         <Styled.h2>About</Styled.h2>
         <Styled.p>
-          Hello, I'm Asahi Takenouchi. I'm a member of <Styled.a href="https://iis-lab.org">IIS-Lab</Styled.a> at the
-          University of Tokyo. My research interests lie in Human-Computer-Interaction (HCI). Also I'm a master student
-          at the Graduate School of Interdisciplinary Information Studies (
-          <Styled.a href="http://www.iii.u-tokyo.ac.jp/">GSII</Styled.a>).
+          Hello, I'm Asahi Takenouchi. I'm a member of{` `}
+          <Styled.a href="https://iis-lab.org">IIS-Lab</Styled.a> and a master student at{` `}
+          <Styled.a href="http://www.iii.u-tokyo.ac.jp/">GSII</Styled.a>, the University of Tokyo.
         </Styled.p>
         <Styled.p>
           I'm a Software Developer experienced in a lot of technologies such as web (TypeScript, Node.js), mobile apps
