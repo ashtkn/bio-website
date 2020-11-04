@@ -44,9 +44,8 @@ const About: React.FC<{ offset: number; factor: number }> = ({ offset, factor })
           <Styled.a href="http://www.iii.u-tokyo.ac.jp/">GSII</Styled.a>, the University of Tokyo.
         </Styled.p>
         <Styled.p>
-          I'm a Software Developer experienced in a lot of technologies such as web (TypeScript, Node.js), mobile apps
-          (iOS and Android), games (Unity), microcomputers (Arduino, Raspberry Pi) and other technologies. Please take a
-          look at my projects here. This website is written in TypeScript with Gatsby.
+          I'm a Software Developer experienced in a lot of technologies such as web, mobile apps, and other
+          technologies. Please take a look at my awesome projects here!
         </Styled.p>
       </Inner>
     </Content>

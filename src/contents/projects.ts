@@ -4,50 +4,40 @@ const projects: {
   title: string
   technology: string
   bg: string
-  website?: string
+  href?: string
   youtube?: string
   github?: string
 }[] = [
   {
-    key: `photo-album`,
-    filename: `photo-album.jpg`,
-    title: `Photo Album`,
+    key: `photo-gallery`,
+    filename: `photo-gallery.jpg`,
+    title: `Photo Gallery`,
     technology: `Next.js, TypeScript`,
-    website: `https://photos.takenouchi.work`,
-    github: `https://github.com/ashtkn/photo-album`,
-    bg: `linear-gradient(to right, #D585FF 0%, #00FFEE 100%)`,
+    href: `https://photos.takenouchi.work`,
+    bg: `linear-gradient(to right, #D4145A 0%, #FBB03B 100%)`,
   },
   {
     key: `exhibition-app`,
     filename: `exhibition-app.jpg`,
     title: `Exhibition App`,
     technology: `iOS, Swift`,
-    youtube: `https://www.youtube.com/watch?v=fe0_cMPLUwc`,
-    github: `https://github.com/ashtkn/ExhibitionApp`,
-    bg: `linear-gradient(to right, #D4145A 0%, #FBB03B 100%)`,
+    href: `https://youtu.be/fe0_cMPLUwc`,
+    bg: `linear-gradient(to right, #662D8C 0%, #ED1E79 100%)`,
   },
   {
     key: `heisei-hackathon`,
     filename: `heisei-hackathon.png`,
     title: `HEISEI NO ASHIATO`,
     technology: `Vue.js`,
-    youtube: `https://www.youtube.com/watch?v=nDs3hQ6yt30`,
-    github: `https://github.com/ashtkn/heisei-hackathon`,
-    bg: `linear-gradient(to right, #662D8C 0%, #ED1E79 100%)`,
+    href: `https://www.youtube.com/watch?v=nDs3hQ6yt30`,
+    bg: `linear-gradient(to right, #D585FF 0%, #00FFEE 100%)`,
   },
   {
     key: `mayfes-2018`,
     filename: `mayfes-2018.png`,
     title: `Meteor Crash VR`,
     technology: `Unity, C#`,
-    youtube: `https://www.youtube.com/watch?v=1tiTpA__cyk`,
-    bg: `linear-gradient(to right, #D585FF 0%, #00FFEE 100%)`,
-  },
-  {
-    key: `lanthanum`,
-    filename: `lanthanum.jpg`,
-    title: `IoT Lanthanum`,
-    technology: `Raspberry Pi`,
+    href: `https://youtu.be/1tiTpA__cyk`,
     bg: `linear-gradient(to right, #009245 0%, #FCEE21 100%)`,
   },
   {
@@ -56,6 +46,7 @@ const projects: {
     title: `Wonder Sphere VR`,
     technology: `Unity, C#`,
     bg: `linear-gradient(to right, #D4145A 0%, #FBB03B 100%)`,
+    href: `https://youtu.be/vEg8CRxvXug`,
   },
   {
     key: `ivrc-2017`,
@@ -63,14 +54,8 @@ const projects: {
     title: `Mosquitoon`,
     technology: `Unity, C#`,
     bg: `linear-gradient(to right, #662D8C 0%, #ED1E79 100%)`,
+    href: `https://youtu.be/cVLZQhnIlhY`,
   },
-  // {
-  //   key: `mayfes-2017`,
-  //   filename: `mayfes-2017.jpg`,
-  //   title: `MAY FES 2017 VR GAME`,
-  //   technology: `Unity, C#`,
-  //   bg: `linear-gradient(to right, #D585FF 0%, #00FFEE 100%)`,
-  // },
 ]
 
 export default projects
