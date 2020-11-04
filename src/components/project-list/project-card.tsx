@@ -5,22 +5,15 @@ import Img, { FluidObject } from 'gatsby-image'
 
 type ProjectCardProps = {
   image: FluidObject | FluidObject[]
-  index: number
   title: string
+  href?: string
   children?: React.ReactNode
   bg: string
-  onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>, payload: { index: number }) => void
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ image, index, title, children, bg, onClick }) => (
+const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, href, children, bg }) => (
   <a
-    role="presentation"
-    onClick={(event) => {
-      if (onClick) {
-        onClick(event, { index })
-      }
-    }}
-    onKeyDown={undefined}
+    href={href}
     target="_blank"
     rel="noreferrer noopener"
     sx={{
