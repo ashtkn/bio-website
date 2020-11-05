@@ -13,6 +13,10 @@ module.exports = {
     basePath: `/`,
   },
   plugins: [
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-graphql-codegen`,
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-theme-ui`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,9 +27,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-emotion`,
-    `gatsby-plugin-theme-ui`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -42,10 +43,9 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     {
-      resolve: `gatsby-plugin-graphql-codegen`,
+      resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        documentPaths: [`./src/**/*.{ts,tsx}`, `./.cache/fragments/*.js`, `./node_modules/gatsby-*/**/*.js`],
-        codegenConfig: { maybeValue: `T | undefined` },
+        siteUrl: `https://www.takenouchi.work`,
       },
     },
   ],
