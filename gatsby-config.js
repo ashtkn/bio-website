@@ -41,7 +41,12 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
-    `gatsby-plugin-canonical-urls`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.takenouchi.work`,
+      },
+    },
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
