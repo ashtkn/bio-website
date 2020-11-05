@@ -57,6 +57,7 @@ export const UpDownWide = styled.div`
   bottom: 0;
 `
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const waveAnimation = (length: string) => css`
   animation: ${wave} ${length} linear infinite alternate;
 `
