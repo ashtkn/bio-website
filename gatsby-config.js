@@ -41,6 +41,7 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-canonical-urls`,
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
