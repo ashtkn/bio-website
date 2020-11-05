@@ -36,10 +36,11 @@ module.exports = {
         background_color: `#141821`,
         theme_color: `#f6ad55`,
         display: `standalone`,
-        icons: [],
       },
     },
     `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
